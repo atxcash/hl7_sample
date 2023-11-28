@@ -25,7 +25,7 @@ def parse_hl7_message(message_string):
             print(f"Result Flag: {result_flag}")
             print('---')
 
-# Replace with your HL7 ORU message
+# Add Hl7 message here after =""
 hl7_message = """
 MSH|^~\&|NOVA^Prime+^V1.14.1057.0^PP1719210C^PRIME_PLUS_BUN_MODEL||||20220215083327.245||ORU^R01^ORU_R01|0215083327.245|P|2.5||||||UNICODE UTF-8
 PID|1|fid:5821314|||Claw^Bear^||19860717|U||||||||||
