@@ -4,3 +4,6 @@ SELECT * FROM results WHERE patient_id = 'patient_id';
 
 #locate patients by the results flags with all their patientIDs 
 SELECT DISTINCT patient_id FROM results WHERE result_flag = 'your_result_flag';
+
+#Locate patients by abnromal results only 
+SELECT * FROM results WHERE result_flag = '' OR result_flag = 'N';
