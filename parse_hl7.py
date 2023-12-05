@@ -11,6 +11,10 @@ def parse_hl7_message(message_string):
         observed_date = obr['OBR_7'].value
         print(f"Observed Date: {observed_date}")
 
+            # Extracting order number and ordering provider
+        order_number = obr['OBR_2'].value
+        ordering_provider = obr['OBR_16']['XCN_1'].value
+
         for obx in obr['OBX']:
             result_name = obx['OBX_3']['CE_2'].value
             result_value = obx['OBX_5'].value
@@ -24,6 +28,9 @@ def parse_hl7_message(message_string):
             print(f"Result Range: {result_range}")
             print(f"Result Flag: {result_flag}")
             print('---')
+
+    # Returning order number and ordering provider
+    return order_number, ordering_provider
 
 # Add Hl7 message here after =""
 hl7_message = """
