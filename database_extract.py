@@ -3,6 +3,9 @@ user="your_username"
 password="your_password"
 database="your_database"
 
+# Importing datetime module
+from datetime import datetime
+
 # Directory with HL7 files
 dir="/path/to/your/directory"
 
@@ -24,6 +27,8 @@ do
   result_flag=$(echo "$output" | grep "Result Flag" | cut -d' ' -f3)
 
   # Insert the results into the MySQL database
+  # Adding create date to the INSERT statement
+  create_date = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
   mysql -u$user -p$password $database -e "INSERT INTO results (patient_id, observed_date, result_name, result_value, result_units, result_range, result_flag) VALUES ('$patient_id', '$observed_date', '$result_name', '$result_value', '$result_units', '$result_range', '$result_flag');"
 done
 
